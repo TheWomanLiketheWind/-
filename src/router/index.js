@@ -7,7 +7,7 @@ import store from '@/store/index'
 Vue.use(Router)
 
 const RouterConfig = {
-  mode: 'history',
+  // mode: 'history',
   routes
 }
 

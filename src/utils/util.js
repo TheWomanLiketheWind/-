@@ -10,7 +10,7 @@ let util = {
 
 util.title = (title) => {
   title = title || ''
-  window.document.title = title
+  window.document.title = '基诺链'
 }
 //	创建axios实例
 util.http = axios.create({
@@ -41,9 +41,8 @@ util.http.interceptors.response.use(
       switch (error.response.status) {
         case 401:
           // 401 清除token信息并跳转到登录页面
-          console.log(111)
           localStorage.setItem('skipUrl', window.location.href)
-          location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + config.wxInfo.appId + '&redirect_uri=' + config.loginUrl + '/home/login&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+          location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + config.wxInfo.appId + '&redirect_uri=' + config.loginUrl + '/%23/home/login&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
           break
         case 403:
           // 403 用户未注册跳转注册页面
