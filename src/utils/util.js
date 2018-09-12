@@ -41,8 +41,13 @@ util.http.interceptors.response.use(
       switch (error.response.status) {
         case 401:
           // 401 清除token信息并跳转到登录页面
-          localStorage.setItem('skipUrl', window.location.href)
-          location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + config.wxInfo.appId + '&redirect_uri=' + config.loginUrl + '/%23/home/login&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+          if (config.wxName === '服务') {
+            localStorage.setItem('skipUrl', window.location.href)
+            location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + config.wxInfo.appId + '&redirect_uri=' + config.loginUrl + '/home/login&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+          } else {
+            localStorage.setItem('skipUrl', window.location.href)
+            location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + config.wxInfo.appId + '&redirect_uri=' + config.loginUrl + '/home/login?agentId=' + config.agentId + '&response_type=code&scope=snsapi_privateinfo&agentid=' + config.agentId + '&state=STATE#wechat_redirect'
+          }
           break
         case 403:
           // 403 用户未注册跳转注册页面
@@ -54,7 +59,6 @@ util.http.interceptors.response.use(
       }
     }
     // console : Error: Request failed with status code 402
-    console.log(error)
     return Promise.reject(error.response.message)
   })
 

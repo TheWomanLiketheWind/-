@@ -4,18 +4,18 @@
 
     <tabbar v-if="isShowTabBar">
       <tabbar-item :selected="currentUri === '/'" link="/">
-        <img slot="icon" src="../assets/shouye_icon.png">
-        <img slot="icon-active" src="../assets/shouye_iconActive.png">
+        <!-- <img slot="icon" src="../assets/shouye_icon.png">
+        <img slot="icon-active" src="../assets/shouye_iconActive.png"> -->
         <span slot="label">首页</span>
       </tabbar-item>
       <tabbar-item :selected="currentUri === '/product'" link="/product">
-        <img slot="icon" src="../assets/gouwuche_icon.png">
-        <img slot="icon-active" src="../assets/gouwuche_iconActive.png">
+        <!-- <img slot="icon" src="../assets/gouwuche_icon.png">
+        <img slot="icon-active" src="../assets/gouwuche_iconActive.png"> -->
         <span slot="label">产品</span>
       </tabbar-item>
       <tabbar-item :selected="currentUri === '/personalCenter'" link="/personalCenter">
-        <img slot="icon" src="../assets/me_icon.png">
-        <img slot="icon-active" src="../assets/me_iconActive.png">
+        <!-- <img slot="icon" src="../assets/me_icon.png">
+        <img slot="icon-active" src="../assets/me_iconActive.png"> -->
         <span slot="label">我的</span>
       </tabbar-item>
     </tabbar>
